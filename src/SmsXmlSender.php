@@ -1,6 +1,6 @@
 <?php
 
-namespace Programmers4u\gatesms\sms\xml\sender;
+namespace Programmers4u\gatesms\sms;
 
 /*******************************************************************
 *   SKRYPT WEBAPI (sms api) DO WYSYŁANIA SMS GATESMS.EU            *
@@ -8,7 +8,7 @@ namespace Programmers4u\gatesms\sms\xml\sender;
 *   http://www.gatesms.eu  2002 - 2011 Programmers4u               *                                         
 ********************************************************************/  
  
-class SmsSender {
+class SmsXmlSender {
 
 	public $to; 
     public $from; 
