@@ -1,6 +1,6 @@
 <?php
 
-namespace Programmers4u\gatesms\sms\xml\sender;
+namespace Programmers4u\gatesms\sms;
 
 /*******************************************************************
 *   SKRYPT WEBAPI (sms api) DO WYSYŁANIA SMS GATESMS.EU            *
@@ -8,7 +8,7 @@ namespace Programmers4u\gatesms\sms\xml\sender;
 *   http://www.gatesms.eu  2002 - 2011 Programmers4u               *                                         
 ********************************************************************/  
  
-class SmsSender {
+class SmsXmlSender {
 
 	public $to; 
     public $from; 
@@ -51,7 +51,7 @@ class SmsSender {
         $this->time=time();
         $this->globalId=0;
         $this->debug=0;
-        $this->localIdRandom=0;
+        $this->localIdRandom=1;
         $this->raw="false";
         $this->part='';
         $this->modemID="";
@@ -170,7 +170,8 @@ class SmsSender {
 		array_push($header,"Expect: 100-continue");
 
         $fields="body=".urlencode($POST);
-			
+        print $POST;
+        	
         if(!$this->smsConnect) $this->Connection();
         curl_setopt($this->smsConnect, CURLOPT_HTTPHEADER, $header);  			         
         curl_setopt($this->smsConnect, CURLOPT_POSTFIELDS, $fields);
