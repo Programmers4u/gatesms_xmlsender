@@ -51,7 +51,7 @@ class SmsSender {
         $this->time=time();
         $this->globalId=0;
         $this->debug=0;
-        $this->localIdRandom=0;
+        $this->localIdRandom=1;
         $this->raw="false";
         $this->part='';
         $this->modemID="";
@@ -170,7 +170,8 @@ class SmsSender {
 		array_push($header,"Expect: 100-continue");
 
         $fields="body=".urlencode($POST);
-			
+        print $POST;
+        	
         if(!$this->smsConnect) $this->Connection();
         curl_setopt($this->smsConnect, CURLOPT_HTTPHEADER, $header);  			         
         curl_setopt($this->smsConnect, CURLOPT_POSTFIELDS, $fields);

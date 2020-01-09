@@ -31,8 +31,6 @@ final class smsSenderTest extends TestCase
         $sms->to = $env->tonumber;
         $sms->AddMsg($env->message);
         $res = $sms->sendSms();
-
-        var_dump($res);
         
         $out = $this->resultToArray($res);
         $this->assertEquals('002',$out[0]['Status']);    
